@@ -3,6 +3,8 @@
 
 key_types key_t;
 
+ uint16_t  K1=0;
+ uint16_t  K2=0;
 
 /***********************************************************
  *  *
@@ -15,9 +17,9 @@ key_types key_t;
 uint8_t ReadKey(void)
 {
 
-  static uint16_t  K1=0;
-  static uint16_t  K2=0;
  
+ // static uint16_t  K1=0;
+ // static uint16_t  K2=0;
 
   static uint8_t cnt;
   uint8_t 	 	value1 = 0;
@@ -27,23 +29,23 @@ uint8_t ReadKey(void)
 //		return value1;
 //	T1msFlag = 0;
 	
-  if(FUN_KEY_VALUE() ==KEY_DOWN && CONFIRM_KEY_VALUE()==0){ //KEY1 =POWER_KEY ,KEY2 = MODES
+  if(FUN_KEY_VALUE() ==KEY_DOWN ){ //KEY1 =POWER_KEY ,KEY2 = MODES
 		cnt = 0;
 		K1++;	 //Fun_key press 
   }
-  else if(FUN_KEY_VALUE() ==0 && CONFIRM_KEY_VALUE()==KEY_DOWN){
+  else if( CONFIRM_KEY_VALUE()==KEY_DOWN){
 		cnt = 0;
 		K2++;   //Confirm_key press
   }
   else if(FUN_KEY_VALUE()==0 && CONFIRM_KEY_VALUE()==0){ //oneself key 
 		cnt++;
-		if(cnt<30){ //按键松开消抖,一定要大于短按键次数 > 20
+		if(cnt<50){ //按键松开消抖,一定要大于短按键次数 > 20
 		    return 0; 
 
 		}
 		
 		cnt = 0;//
-		if(K1>20){ //KEY_FUN
+		if(K1>40){ //KEY_FUN
 			value1 = 0x01;	//short time power press ---power on 
 		}
 		else{
@@ -52,11 +54,11 @@ uint8_t ReadKey(void)
 		}
 
 		//KEY_CONFIRM 
-		if(K2>20 && K2< 500){//short time modes press 
+		if(K2>40 && K2< 20000){//short time modes press 
             value2 = 0x02;
 
 		}
-		else if(K2>500){
+		else if(K2>20000){
 			value2 = 0x03;  //long time power press
 		}
 		else{ 

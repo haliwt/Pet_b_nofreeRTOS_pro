@@ -57,6 +57,7 @@ void Key_Handler(uint8_t key_value)
      case fun_key:  //fun key 
 
          if(keep_temp_flag ==1){
+		 	
 		 	  tpd_t.gTimer_select_fun=0;
               tpd_t.digital_numbers++; //scope : 16~30度
 			  if(tpd_t.digital_numbers>30) tpd_t.digital_numbers=30;
@@ -69,7 +70,7 @@ void Key_Handler(uint8_t key_value)
          switch(pro_t.key_fun){
 
 		    case relay_a:
-               
+               KEY_FUN_CONFIRM_LED_ON() ;  
 		       relay_id_led = relay_fan_led_on;
 		       tpd_t.gTimer_select_fun=0;
 			   
@@ -77,6 +78,7 @@ void Key_Handler(uint8_t key_value)
 		    break;
 		 
 		    case relay_b:
+				  KEY_FUN_CONFIRM_LED_ON() ; 
 				relay_id_led = relay_tape_led_on;
 				tpd_t.gTimer_select_fun=0;
 				
@@ -84,6 +86,7 @@ void Key_Handler(uint8_t key_value)
 		    break;
 
 			case relay_c:
+				  KEY_FUN_CONFIRM_LED_ON() ;  
 				relay_id_led = relay_kill_led_on;
 				tpd_t.gTimer_select_fun=0;
 				
@@ -91,7 +94,7 @@ void Key_Handler(uint8_t key_value)
 
 			case relay_temp: //keep temperature value
 
-			 
+			  KEY_FUN_CONFIRM_LED_ON() ;  
 			relay_id_led = relay_keep_temp_led_on;
 			tpd_t.gTimer_select_fun=0;
 			 
@@ -138,6 +141,7 @@ void Key_Handler(uint8_t key_value)
 
 		}
 		else{
+			tpd_t.gTimer_select_fun=0;
 	    	pro_t.key_short_confirm_flag =1;
 		}
 		
@@ -148,7 +152,7 @@ void Key_Handler(uint8_t key_value)
 
 	    if(keep_temp_flag ==1){
 
-	        tpd_t.gTimer_select_fun=8;
+	        tpd_t.gTimer_select_fun=20;
 			keep_temp_flag =0;
 		
 			ADD_DEC_LED_OFF();
@@ -523,7 +527,7 @@ static void Relay_Fun(uint8_t relay_id_led_flag)
 	case relay_keep_temp_led_on: //keep temperature be set up value 16~30 degree
 
 	    //KEEP HEAT Display of LED 
-       if(tpd_t.gTimer_select_fun < 6 && pro_t.key_long_confirm_flag ==0){
+       if(tpd_t.gTimer_select_fun < 12 && pro_t.key_long_confirm_flag ==0){
 
 	       if(keep_temp_flag ==0){
 		   	
@@ -537,7 +541,7 @@ static void Relay_Fun(uint8_t relay_id_led_flag)
 		
        	}
         else{
-			tpd_t.gTimer_select_fun=10;
+			tpd_t.gTimer_select_fun=20;
             keep_temp_flag =0;
 		    ADD_DEC_LED_OFF();
        
@@ -673,7 +677,7 @@ static void Run_Display_Handler(uint8_t temp_value)
 
 	if(first_power_on==0){
 		first_power_on++;
-       KEY_FUN_CONFIRM_LED_SetLow();
+       KEY_FUN_CONFIRM_LED_ON();
 
 	}
 

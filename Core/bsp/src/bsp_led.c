@@ -408,7 +408,7 @@ void Keep_heat_SetUp_Led_Filcker(void)
   
 	if(led_t.gTimer_keey_heat_flicker < 1){ //500ms
 
-		KEY_FUN_CONFIRM_LED_SetLow();
+		KEY_FUN_CONFIRM_LED_ON();
 		KEEP_HEAT_LED_ON();	
 	    
 	  
@@ -417,7 +417,7 @@ void Keep_heat_SetUp_Led_Filcker(void)
 	else if(led_t.gTimer_keey_heat_flicker >0 && led_t.gTimer_keey_heat_flicker <2){
 
 
-		KEY_FUN_CONFIRM_LED_SetHigh();
+		KEY_FUN_CONFIRM_LED_OFF();
 		KEEP_HEAT_LED_OFF();
 	   
 	    
@@ -684,7 +684,7 @@ void Key_Confirm_Handler(uint8_t selitem)
                     KEEP_HEAT_LED_ON();
                 }
 				tpd_t.keep_heat_fun_digital_numbers=0;
-                KEY_FUN_CONFIRM_LED_SetLow() ;
+                KEY_FUN_CONFIRM_LED_ON() ;
                 tpd_t.run_process_tag=KEY_NULL; 
                
 
@@ -698,7 +698,7 @@ void Key_Confirm_Handler(uint8_t selitem)
 	  	      tpd_t.confirm_key_select_item_keep_heat = keep_heat_enable;
 	          KEEP_HEAT_LED_ON();
 			  ADD_DEC_LED_OFF();  
-			  KEY_FUN_CONFIRM_LED_SetLow() ;
+			  KEY_FUN_CONFIRM_LED_ON() ;
 
               tpd_t.run_process_tag=KEY_NULL;
 	  break;
@@ -721,7 +721,7 @@ void Key_Confirm_Handler(uint8_t selitem)
 
    case KEY_NULL:
 
-      KEY_FUN_CONFIRM_LED_SetLow() ;
+      KEY_FUN_CONFIRM_LED_ON() ;
    break;
 
    default:
