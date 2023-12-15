@@ -17,6 +17,8 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
     if(htim->Instance==TIM14){
        tm0++;
        tm1++;
+	     pro_t.gTimer_pro_key++;
+         pro_t.gTimer_pro_disp++;
 	    tpd_t.gTimer_smg_turn_on ++;
 	   if(tm1>49){ //50 *10ms =500ms
 	   	 tm1=0;

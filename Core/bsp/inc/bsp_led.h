@@ -83,6 +83,7 @@ void Tape_Led_Flicker(void);
 void Sterilization_Led_Filcker(void);
 void Keep_Heat_Led_Filcker(void);
 
+void Keep_heat_SetUp_Led_Filcker(void);
 
 
 #endif 

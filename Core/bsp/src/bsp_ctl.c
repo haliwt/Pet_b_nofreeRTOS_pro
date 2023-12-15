@@ -149,48 +149,7 @@ void Run_BoardCommand_Handler(void)
 }
 
 
-void Run_Display_Handler(void)
-{
 
-    static uint8_t first_power_on;
-
-	switch(tpd_t.keep_heat_fun_digital_numbers){
-
-	  case 0:
-		
-	if(tpd_t.gTimer_read_adc >12 || tpd_t.power_on_times < 50){
-	  tpd_t.gTimer_read_adc =0;
-      if(tpd_t.power_on_times < 10){
-           Read_NTC_Temperature_Power_On();
-      }
-	  else	
-	      Read_NTC_Temperature_Value_Handler();
-    }
-	
-	if(tpd_t.gTimer_display > 6 || tpd_t.power_on_times < 50){
-      tpd_t.gTimer_display=0; 
-	  tpd_t.power_on_times++;
-        
-         Smg_Display_Temp_Degree_Handler();
-        
-    }
-
-	if(first_power_on==0){
-		first_power_on++;
-       KEY_FUN_CONFIRM_LED_SetLow();
-
-	}
-
-    break;
-
-	case 1:
-      Run_Keep_Heat_Setup_Digital_Numbers();
-			
-
-	break;
-   }
-
-}
 
 /***********************************************************
 	*
@@ -224,7 +183,7 @@ static uint8_t relay_a_fun(void)
 ***********************************************************/
 void Relay_B_Process(uint8_t (*relay_b_handler)(void))
 {
-     relay_b_state = relay_a_handler;
+     relay_b_state = relay_b_handler;
 }
 
 static uint8_t relay_b_fun(void)
@@ -246,7 +205,7 @@ static uint8_t relay_b_fun(void)
 ***********************************************************/
 void Relay_C_Process(uint8_t (*relay_c_handler)(void))
 {
-     relay_c_state = relay_a_handler;
+     relay_c_state = relay_c_handler;
 }
 
 static uint8_t relay_c_fun(void)
@@ -268,7 +227,7 @@ static uint8_t relay_c_fun(void)
 ***********************************************************/
 void Relay_D_Process(uint8_t (*relay_d_handler)(void))
 {
-     relay_d_state = relay_a_handler;
+     relay_d_state = relay_d_handler;
 }
 
 static uint8_t relay_d_fun(void)

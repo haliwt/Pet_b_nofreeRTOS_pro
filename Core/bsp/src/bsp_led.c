@@ -12,7 +12,7 @@ LED_T led_t;
 //static void Keep_Heat_Led_Filcker(void);
 
 static void Add_Dec_Led_Filcker(void);
-static void Keep_heat_SetUp_Led_Filcker(void);
+//static void Keep_heat_SetUp_Led_Filcker(void);
 
 /*************************************************************************
 	*
@@ -38,7 +38,7 @@ void Led_Display_Content_Fun(uint8_t selitem)
 		if(tpd_t.confirm_key_select_item_tape == tape_enable){
 			TAPE_LED_ON();
 		    
-		    RELAY_TAPE_SetHight()	;
+		    RELAY_TAPE_SetHigh()	;
 
 		}
 		else{
@@ -146,7 +146,7 @@ void Led_Display_Content_Fun(uint8_t selitem)
        //TAPE
 		if(tpd_t.confirm_key_select_item_tape == tape_enable){
 		TAPE_LED_ON();
-		RELAY_TAPE_SetHight()	;
+		RELAY_TAPE_SetHigh()	;
 
 		}
 		else{
@@ -196,7 +196,7 @@ void Led_Display_Content_Fun(uint8_t selitem)
 		if(tpd_t.confirm_key_select_item_tape == tape_enable){
     		TAPE_LED_ON();
     		
-    		RELAY_TAPE_SetHight();
+    		RELAY_TAPE_SetHigh();
 
     	}
     	else{
@@ -356,6 +356,7 @@ void Keep_Heat_Led_Filcker(void)
 	if(led_t.gTimer_flicker < 1){ //500ms
 	
 		KEEP_HEAT_LED_ON();
+		
 	
 	   }
 	   else if(led_t.gTimer_flicker >0 && led_t.gTimer_flicker <2){
@@ -401,7 +402,7 @@ static void Add_Dec_Led_Filcker(void)
 }
 
 
-static void Keep_heat_SetUp_Led_Filcker(void)
+void Keep_heat_SetUp_Led_Filcker(void)
 {
 
   
@@ -409,6 +410,7 @@ static void Keep_heat_SetUp_Led_Filcker(void)
 
 		KEY_FUN_CONFIRM_LED_SetLow();
 		KEEP_HEAT_LED_ON();	
+	    
 	  
 
 	}
@@ -458,7 +460,7 @@ void Key_Confirm_Handler(uint8_t selitem)
    	    if(tpd_t.confirm_key_select_item_tape == tape_enable){
 	      TAPE_LED_ON();
 		  
-		  RELAY_TAPE_SetHight()	;
+		  RELAY_TAPE_SetHigh()	;
 
 	  }
 	  else{
@@ -546,7 +548,7 @@ void Key_Confirm_Handler(uint8_t selitem)
     	  tpd_t.confirm_key_select_item_tape = tape_enable;
     	 
        	  TAPE_LED_ON();
-    	  RELAY_TAPE_SetHight()	;
+    	  RELAY_TAPE_SetHigh()	;
       }
       else{
           tpd_t.confirm_key_select_item_tape = confirm_disable ;
@@ -571,7 +573,7 @@ void Key_Confirm_Handler(uint8_t selitem)
       if(tpd_t.confirm_key_select_item_tape == tape_enable){
 	      TAPE_LED_ON();
 		  
-	  	  RELAY_TAPE_SetHight()   ;
+	  	  RELAY_TAPE_SetHigh()   ;
 
 	  }
 	  else{
@@ -629,7 +631,7 @@ void Key_Confirm_Handler(uint8_t selitem)
 	      TAPE_LED_ON();
 		  
 	  
-	      RELAY_TAPE_SetHight()   ;
+	      RELAY_TAPE_SetHigh()   ;
 
 	  }
 	  else{

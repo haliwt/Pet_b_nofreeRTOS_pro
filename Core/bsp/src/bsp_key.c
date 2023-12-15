@@ -84,6 +84,8 @@ uint8_t ReadKey(void)
 
   return (value1+value2);
   #endif 
+	
+   return 0;
 }
 
 

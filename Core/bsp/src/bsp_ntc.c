@@ -357,7 +357,7 @@ void Read_NTC_Temperature_Value_Handler(void)
   
 	 #if 1
 	 tpd_t.ntc_voltage_value= Read_NTC_Temperature_Voltage();
-      temp_uint16_t_vlue= tpd_t.ntc_voltage_value /100;
+     temp_uint16_t_vlue= tpd_t.ntc_voltage_value /100;
 	 length_simple = sizeof(R10K_Init_0_81_simple)/sizeof(R10K_Init_0_81_simple[0]);
     
    	 tpd_t.temp_degree = Binary_Search(R10K_Init_0_81_simple,temp_uint16_t_vlue,length_simple);

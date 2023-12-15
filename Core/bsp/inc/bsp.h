@@ -23,7 +23,7 @@ typedef enum{
 
     fun_key =0x01,
 	confirm_short_key,
-	confrm_long_key,
+	confirm_long_key
 
 
 }key_id_state;
@@ -34,7 +34,7 @@ typedef enum{
     relay_a = 0x01,
 	relay_b ,
 	relay_c ,
-	relay_d 
+	relay_temp 
 
 }relay_id_state;
 
@@ -54,8 +54,12 @@ typedef struct{
    uint8_t key_fun;
    uint8_t key_short_confirm_flag;
    uint8_t key_long_confirm_flag;
+   uint8_t set_keep_temp;
+   uint8_t set_keep_tmep_value;
+   
    uint8_t gTimer_pro_feed_dog;
-
+   uint8_t gTimer_pro_key;
+   uint8_t gTimer_pro_disp;
 
 
 }main_prcess_t;

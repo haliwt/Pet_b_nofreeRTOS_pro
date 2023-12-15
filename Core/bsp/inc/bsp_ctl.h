@@ -46,6 +46,7 @@ typedef struct _touchpad_t{
    uint8_t gTimer_read_adc;
    uint8_t gTimer_display;
    uint8_t gTimer_select_fun;
+   
    uint8_t confirm_key_select_item_fan;
    uint8_t confirm_key_select_item_tape;
    uint8_t confirm_key_select_item_sterilization;
@@ -90,12 +91,13 @@ void Relay_D_Process(uint8_t(*relay_d_handler)(void));
 
 
 
+void bsp_ctl_init(void);
 
 
 void Run_InputKey_Model(uint8_t keyvalue);
 
 void Run_BoardCommand_Handler(void);
-void Run_Display_Handler(void);
+
 
 
 
