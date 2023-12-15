@@ -67,7 +67,7 @@ void SystemClock_Config(void);
 int main(void)
 {
   /* USER CODE BEGIN 1 */
-
+   uint8_t key_value;
   /* USER CODE END 1 */
 
   /* MCU Configuration--------------------------------------------------------*/
@@ -92,6 +92,7 @@ int main(void)
   MX_IWDG_Init();
   MX_TIM14_Init();
   /* USER CODE BEGIN 2 */
+   bsp_ctl_init();
 
   /* USER CODE END 2 */
 
@@ -102,6 +103,9 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
+	 key_value = ReadKey();
+	 Key_Handler(key_value);
+	 Main_Process();
   }
   /* USER CODE END 3 */
 }

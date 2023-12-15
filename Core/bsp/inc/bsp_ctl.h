@@ -10,8 +10,23 @@ typedef enum {
 
 }key_item;
 
+typedef enum{
+
+    close,
+	open
+
+
+}open_state;
+
 
 typedef struct _touchpad_t{
+
+   //
+    uint8_t relay_fan_flag ;
+    uint8_t relay_tape_flag ;
+	uint8_t relay_kill_flag ;
+	uint8_t relay_keep_temp_flag ;
+   
 
    //smg
    uint8_t gTimer_smg;
@@ -60,6 +75,20 @@ typedef struct _touchpad_t{
 
 
 extern touchpad_t tpd_t;
+
+
+extern uint8_t (*relay_a_state)(void);
+extern uint8_t (*relay_b_state)(void);
+extern uint8_t (*relay_c_state)(void);
+extern uint8_t (*relay_d_state)(void);
+
+void Relay_A_Process(uint8_t(*relay_a_handler)(void));
+void Relay_B_Process(uint8_t(*relay_b_handler)(void));
+void Relay_C_Process(uint8_t(*relay_c_handler)(void));
+void Relay_D_Process(uint8_t(*relay_d_handler)(void));
+
+
+
 
 
 

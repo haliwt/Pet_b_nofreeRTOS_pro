@@ -70,6 +70,7 @@ typedef  struct  _state_
 
 
 
+uint8_t ReadKey(void);
 
 uint8_t KEY_Scan(void);
 

@@ -5,8 +5,8 @@
 
 
 
-#define STERILIZATION_LED_OFF()			HAL_GPIO_WritePin(KILL_LED_GPIO_Port , KILL_LED_Pin, GPIO_PIN_SET)
-#define STERILIZATION_LED_ON()			HAL_GPIO_WritePin(KILL_LED_GPIO_Port , KILL_LED_Pin, GPIO_PIN_RESET)
+#define KILL_LED_OFF()			HAL_GPIO_WritePin(KILL_LED_GPIO_Port , KILL_LED_Pin, GPIO_PIN_SET)
+#define KILL_LED_ON()			HAL_GPIO_WritePin(KILL_LED_GPIO_Port , KILL_LED_Pin, GPIO_PIN_RESET)
 
 
 #define FAN_LED_OFF()				    HAL_GPIO_WritePin(FAN_LED_GPIO_Port, FAN_LED_Pin, GPIO_PIN_SET)
@@ -24,21 +24,7 @@
 #define ADD_DEC_LED_ON()			   HAL_GPIO_WritePin(ADD_DEC_LED_GPIO_Port , ADD_DEC_LED_Pin, GPIO_PIN_RESET)
 
 
-//relay output 
-#define RELAY_A_SetHigh()		HAL_GPIO_WritePin(RELAY_A_GPIO_Port, RELAY_A_Pin, GPIO_PIN_SET)
-#define RELAY_A_SetLow()		HAL_GPIO_WritePin(RELAY_A_GPIO_Port, RELAY_A_Pin, GPIO_PIN_RESET)
 
-
-
-#define RELAY_B_SetHigh()		HAL_GPIO_WritePin(RELAY_B_GPIO_Port , RELAY_B_Pin, GPIO_PIN_SET)
-#define RELAY_B_SetLow()		HAL_GPIO_WritePin(RELAY_B_GPIO_Port , RELAY_B_Pin, GPIO_PIN_RESET)
-
-#define RELAY_C_SetHigh()		HAL_GPIO_WritePin(RELAY_C_GPIO_Port, RELAY_C_Pin, GPIO_PIN_SET)
-#define RELAY_C_SetLow()		HAL_GPIO_WritePin(RELAY_C_GPIO_Port, RELAY_C_Pin, GPIO_PIN_RESET)
-
-//special GPIO output realay D
-#define RELAY_D_SetHigh()		HAL_GPIO_WritePin(RELAY_D_GPIO_Port , RELAY_D_Pin , GPIO_PIN_RESET) //special of gpio has MMBT3904
-#define RELAY_D_SetLow()		HAL_GPIO_WritePin(RELAY_D_GPIO_Port , RELAY_D_Pin , GPIO_PIN_SET)
 
 //circle led
   
@@ -91,6 +77,12 @@ void Key_Confirm_Handler(uint8_t selitem);
 
 
 void Led_Test_Fun(void);
+
+void Fan_Led_Flicker(void);
+void Tape_Led_Flicker(void);
+void Sterilization_Led_Filcker(void);
+void Keep_Heat_Led_Filcker(void);
+
 
 
 #endif 
