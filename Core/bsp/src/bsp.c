@@ -67,6 +67,7 @@ void Key_Handler(uint8_t key_value)
 		 }
 		 else{
          pro_t.key_fun++;
+		 if(pro_t.key_fun > 4) pro_t.key_fun=1;
          switch(pro_t.key_fun){
 
 		    case relay_a:
@@ -99,7 +100,7 @@ void Key_Handler(uint8_t key_value)
 			tpd_t.gTimer_select_fun=0;
 			 
 			 
-			pro_t.key_fun=0;
+			//pro_t.key_fun=0;
 		    break;
 
 			default:

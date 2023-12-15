@@ -5,6 +5,8 @@ key_types key_t;
 
  uint16_t  K1=0;
  uint16_t  K2=0;
+  uint8_t 	 	value1 ;
+  uint8_t   	value2 ;
 
 /***********************************************************
  *  *
@@ -22,8 +24,8 @@ uint8_t ReadKey(void)
  // static uint16_t  K2=0;
 
   static uint8_t cnt;
-  uint8_t 	 	value1 = 0;
-  uint8_t   	value2 = 0;
+  //uint8_t 	 	value1 = 0;
+ // uint8_t   	value2 = 0;
 
 //	if(!T1msFlag)  //10ms check once 
 //		return value1;
@@ -36,10 +38,11 @@ uint8_t ReadKey(void)
   else if( CONFIRM_KEY_VALUE()==KEY_DOWN){
 		cnt = 0;
 		K2++;   //Confirm_key press
+		tpd_t.gTimer_select_fun=0;
   }
   else if(FUN_KEY_VALUE()==0 && CONFIRM_KEY_VALUE()==0){ //oneself key 
 		cnt++;
-		if(cnt<50){ //按键松开消抖,一定要大于短按键次数 > 20
+		if(cnt<30){ //按键松开消抖,一定要大于短按键次数 > 20
 		    return 0; 
 
 		}
