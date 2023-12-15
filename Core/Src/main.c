@@ -95,7 +95,7 @@ int main(void)
    bsp_ctl_init();
 
   /* USER CODE END 2 */
-
+   HAL_TIM_Base_Start_IT(&htim14);//HAL_TIM_Base_Start(&htim3);
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
@@ -103,6 +103,7 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
+	 bsp_Idle();
 	 key_value = ReadKey();
 	 Key_Handler(key_value);
 	 Main_Process();
